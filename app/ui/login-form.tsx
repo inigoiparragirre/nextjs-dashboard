@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { ArrowRightIcon } from '@heroicons/react/20/solid';
 import { Button } from './button';
+import { useRouter } from 'next/router';
 
 export default function LoginForm() {
   return (
@@ -65,8 +66,17 @@ export default function LoginForm() {
 }
 
 function LoginButton() {
+  const router = useRouter();
+
+
+  const goToDashboard = () => {
+    // Add login logic here
+    // Go to dashboard 
+    router.push('/dashboard');
+
+  };
   return (
-    <Button className="mt-4 w-full">
+    <Button onClick={ () => goToDashboard()} className="mt-4 w-full">
       Log in <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
     </Button>
   );
